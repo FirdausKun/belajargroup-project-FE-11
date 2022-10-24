@@ -3,7 +3,7 @@ const url_link = 'https://63528ae6a9f3f34c37409536.mockapi.io/logres';
 
 console.log("test post");
 
-myPost.addEventListener('submit', function (e) {
+myPost.addEventListener('submit',async function (e) {
     e.preventDefault();
     var email1 = document.getElementById("email-regis").value
     var username1 = document.getElementById("Uname-regis").value
@@ -20,10 +20,10 @@ myPost.addEventListener('submit', function (e) {
         }),
         headers: {"Content-type": "application/json"},
     })
-    .then(function(response){
-        return response.json()
+    .then((res) => {
+        window.location.href = "login.html";
     })
-    .then(function(data){
-        console.log(data)
+    .catch((err) =>{
+        alert("Terjadi error!");
     })
 })
