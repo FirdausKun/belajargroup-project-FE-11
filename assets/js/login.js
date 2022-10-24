@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded",function(e){
     let dataStorage = JSON.parse(localStorage.getItem("account"));
 
     if(dataStorage != null){
-        window.location.href = "register.html";
+        window.location.href = "index.html";
     }
 })
 
