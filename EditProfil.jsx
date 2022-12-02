@@ -72,14 +72,14 @@ const EditProfile = () => {
 
           console.log(result);
           console.log(id);
-          if (result.data.id === id) {
-            axios.post(`https://voluntegreen.onrender.com/userprofile`, {
+          if (result.data.data.id === id) {
+            axios.get(`https://voluntegreen.onrender.com/userprofile`, {
               namaDepan: namaDepan,
               namaBelakang: namaBelakang,
               email: email,
               password: password,
               jenisKelamin: jenisKelamin,
-              noHp: noHp,
+              noTelepon: noHp,
               alamat: alamat,
             });
           }
@@ -92,19 +92,24 @@ const EditProfile = () => {
         .get ("https://voluntegreen.onrender.com/userprofile")
         
         .then((result) => {
-          axios.get(`https://voluntegreen.onrender.com/userprofile`, {
-            namaDepan: namaDepan,
-            namaBelakang: namaBelakang,
-            email: email,
-            password: password,
-            jenisKelamin: jenisKelamin,
-            noHp: noHp,
-            alamat: alamat,
-          });
+          if (result.data.data === "63890eca981b2d81ad680aea") {
+            axios.get("https://voluntegreen.onrender.com/userprofile", {
+              namaDepan: namaDepan,
+              namaBelakang: namaBelakang,
+              email: email,
+              password: password,
+              jenisKelamin: jenisKelamin,
+              noHp: noHp,
+              alamat: alamat,
+            });
+          }
+          console.log(result.data.data);
+        });
+      
 
-          console.log(result);
+          // console.log(result);
           console.log(id);
-      })
+      }
       // const response = await axios.get(`https://voluntegreen.onrender.com/userprofile`);
       // setNamaDepan(response.data.namaDepan);
       // setNamaBelakang(response.data.namaBelakang);
@@ -114,7 +119,7 @@ const EditProfile = () => {
       // setNoHp(response.data.noHp);
       // setAlamat(response.data.alamat);
 
-    }
+    
     return (
       <>
         <section className="bg-EditProfile">
